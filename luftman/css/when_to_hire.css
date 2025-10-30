@@ -1,0 +1,30 @@
+
+/* homepage When To Hire panel */
+
+.home .homepage_when_to_hire .columns {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.home .homepage_when_to_hire .columns .column-full {
+	width: 100%;
+	display: flex;
+}
+
+.home .homepage_when_to_hire .columns .column-50 {
+	display: flex;
+	width: 47%;
+}
+
+@media screen and (max-width: 768px) {
+	.home .homepage_when_to_hire .columns .column-50 {
+		width: 100%;
+	}
+}
+
+.home .homepage_when_to_hire .columns .centered {
+	text-align: center;
+	justify-content: center;
+}

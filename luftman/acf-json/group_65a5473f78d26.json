@@ -1,0 +1,155 @@
+{
+    "key": "group_65a5473f78d26",
+    "title": "On Page CTA",
+    "fields": [
+        {
+            "key": "field_65a5473f7f5d1",
+            "label": "Add On Page CTA?",
+            "name": "add_on_page_cta",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "yes": "Yes"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "allow_custom": 0,
+            "layout": "vertical",
+            "toggle": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Add new choice"
+        },
+        {
+            "key": "field_65a547cf3b1f6",
+            "label": "CTA Intro Text",
+            "name": "p1_cta_intro_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Appears in bordered box above phone number",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_65a5473f7f5d1",
+                        "operator": "==",
+                        "value": "yes"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Arrested, Charged, or Ticketed in Columbus, Ohio? Your defense starts here. Call LHA Today.",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65a547d43b1f7",
+            "label": "CTA Phone Number",
+            "name": "p1_cta_phone_number",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Appears in bordered box below cta intro text",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_65a5473f7f5d1",
+                        "operator": "==",
+                        "value": "yes"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "(614) 500-3836",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65a547d73b1f8",
+            "label": "CTA Bottom Text",
+            "name": "p1_cta_bottom_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Appears in bordered box below cta intro text",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_65a5473f7f5d1",
+                        "operator": "==",
+                        "value": "yes"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Free consultation with an experienced, local defense attorney. Avail 24\/7.",
+            "maxlength": "",
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-practice-area.php"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "default"
+            }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-interior.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1705334688
+}
