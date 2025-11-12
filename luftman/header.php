@@ -126,6 +126,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							</div>
 						<?php } ?>
 						<div class="head-menu">
+                            <nav>
 							<?php
 						        // The parent theme menu has way too many complications, lets use a simple wp_menu, primary-nav, set in the functions.php file
 						        $args = array(
@@ -134,6 +135,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						        );
 						        wp_nav_menu( $args );
 						      ?>
+                            </nav>
 						</div>
 						<div class="head-mobile mobile_show">
 							<a href="#" id="menu-icon"><hr><hr><hr></a>
