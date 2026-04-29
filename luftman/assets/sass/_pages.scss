@@ -1,0 +1,71 @@
+/**
+ * Page Template Styles
+ *
+ * @package Postali Child
+ * @author Postali LLC
+*/
+
+.search-results {
+    .content {
+        .container {
+            background:$dkblue;
+        }
+    }
+
+    .content {
+        .title {
+            .container {
+                background:none;
+            }
+        }
+    }
+
+    .blog_holder {
+        article {
+            .post_text_inner {
+                p {
+                    position: relative;
+                    display: block;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+.page-template-attorney_bio {
+    .top_move { 
+        background: #0d213a !important; 
+    }
+
+    .column_inner {
+        p {
+            color:white;
+        }
+    }
+
+    .attorney_bio_accordion {
+        h3 {
+            color:white;
+        }
+
+        .accordion_holder.accordion h5 {
+            &::after {
+                line-height: 100%;
+                font-family: 'icomoon';
+                font-size: 0.8em;
+                font-weight: normal;
+                content: '\e905';
+                color: #FFC361;
+                position: absolute;
+                right: 15px;
+                top: 15px;
+                transition: all .15s ease 0s;
+            }
+
+            &:hover::after {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}

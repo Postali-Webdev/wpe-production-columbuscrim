@@ -1,0 +1,65 @@
+header {
+    position: absolute;
+    top:60px;
+    width: 100%;
+    z-index: 50;
+    display:flex;
+    height:auto;
+    transition: $trans;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba($white, .2);
+
+    @include respond(tab-land) {
+        top: 50px;
+        height: 70px;
+        background-color: $dkblue !important;
+    }
+    
+    .header_inner {
+        padding: 0 50px;
+        margin: 0 auto;
+        width: 100%;
+
+        @include respond(tab-port) {
+            padding:0 20px;
+        }
+
+        .main-logo {
+            margin-top: -20px;
+
+            @include respond(tab-land) {
+                margin-top: 9px;
+            }
+        }
+    }
+}
+
+#mobile-nav {
+    @media screen and (max-width:667px) {
+        top: 120px;
+    }
+    
+    div {
+        @include nav-search-mobile;
+
+        .search-holder {
+            bottom: auto;
+            background: none !important;
+            display: block;
+            height: auto;
+            border-bottom: none;
+
+            .navbar-form-search {
+                .search-form-container {
+                    background: none;
+
+                    &.hdn ~ .btn-search {
+                        background: $dkblue;
+                        right: 12px;
+                        top: 12px;
+                    }
+                }
+            } 
+        }
+    }
+}

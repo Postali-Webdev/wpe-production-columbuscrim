@@ -71,10 +71,32 @@ $('.legal_process_steps .tabs .tabs-nav li').click(function() {
     $('.legal_process_steps .tabs-container').show();
 });
 
-// Change BG color of Homepage legal process buttons on click
-$('.legal_process_steps .tabs .tabs-nav li .legal_process_button').click(function() {
-      $(".legal_process_steps .tabs .tabs-nav li .legal_process_button").css("background", "none");
-      $(this).css("background", "#1c4c85");
+// Hide Homepage legal process steps until click
+$('.legal_process_steps .tabs .tabs-container .tab-content:last-of-type').css("display", "none");
+$('.legal_process_steps .tabs .tabs-container .tab-content .tabs-content .interior-tabs-content div:first-of-type').addClass('show');
+$('.legal_process_steps .tabs .tabs-container .tab-content .tabs-content .interior-tabs-nav ul li:first-of-type').addClass('active');
+
+$('.interior-tabs-nav span').click(function() {
+
+    // Check for active
+    $('.legal_process_steps .tabs .tabs-container .tab-content .tabs-content .interior-tabs-nav li').removeClass('active');
+    $(this).parent().addClass('active');
+
+    // Display active tab
+    let currentTab = $(this).attr('id');
+    $('.legal_process_steps .tabs .tabs-container .tab-content .tabs-content .interior-tabs-content div').css('display','none');
+    $('.legal_process_steps .tabs .tabs-container .tab-content .tabs-content .interior-tabs-content div').removeClass('show');
+    $('.legal_process_steps .tabs .tabs-container .tab-content .tabs-content .interior-tabs-content div#' + currentTab).toggleClass('show');
+    
+
+    return false;
+});
+
+$('.tabs-nav li').click(function() {
+    $('.legal_process_steps .tabs .tabs-container .tab-content .tabs-content .interior-tabs-nav ul li').removeClass('active');
+    $('.legal_process_steps .tabs .tabs-container .tab-content .tabs-content .interior-tabs-content div').removeClass('show');
+    $('.legal_process_steps .tabs .tabs-container .tab-content .tabs-content .interior-tabs-content div:first-of-type').addClass('show');
+    $('.legal_process_steps .tabs .tabs-container .tab-content .tabs-content .interior-tabs-nav ul li:first-of-type').addClass('active');
 });
 
 

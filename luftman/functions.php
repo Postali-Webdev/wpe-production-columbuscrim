@@ -4,6 +4,13 @@
 Function wp_schools_enqueue_scripts() {
 wp_register_style( 'childstyle', get_stylesheet_directory_uri() . '/style.css', array(), filemtime( get_stylesheet_directory() . '/style.css' )  );
 wp_enqueue_style( 'childstyle' );
+
+wp_register_style( 'icomoon', 'https://cdn.icomoon.io/152819/PostaliCrest/style.css?5racx0', array() );
+wp_enqueue_style('icomoon');
+
+wp_register_style( 'postali-css', '/wp-content/themes/luftman/assets/css/styles.css', array() );
+wp_enqueue_style('postali-css');
+
 }
 add_action( 'wp_enqueue_scripts', 'wp_schools_enqueue_scripts', 11);
 
@@ -68,6 +75,15 @@ add_action('wp_enqueue_scripts', 'my_custom_scripts');
 			'redirect'      => false
 		));
 
+        acf_add_options_page(array(
+			'page_title'    => 'Site Customizations',
+			'menu_title'    => 'Site Customizations',
+			'menu_slug'     => 'site_customizations',
+			'capability'    => 'edit_posts',
+			'icon_url'      => 'dashicons-edit-page',
+			'redirect'      => false
+		));
+
 	}
 
 // Widget Logic Conditionals (ancestor) 
@@ -105,11 +121,11 @@ add_filter( 'body_class', 'be_body_classes' );
 
 
 // Add ability to add SVG to Wordpress Media Library
-function cc_mime_types($mimes) {
-  $mimes['svg'] = 'image/svg+xml';
-  return $mimes;
+function enable_svg_upload( $upload_mimes ) {
+    $upload_mimes['svg'] = 'image/svg+xml';
+    return $upload_mimes;
 }
-add_filter('upload_mimes', 'cc_mime_types');
+add_filter( 'upload_mimes', 'enable_svg_upload', 10, 1 );
 
 
 // Register site navigation menus
@@ -505,3 +521,14 @@ function postali_remove_customizer_additional_css_section( $wp_customize ) {
     }
 }
 add_action( 'customize_register', 'postali_remove_customizer_additional_css_section', 20 );
+
+// Register Site Navigations
+	function postali_child_register_nav_menus() {
+		register_nav_menus(
+			array(
+				'footer-practice' => __( 'Footer Practice Areas', 'postali' ),
+                'footer-help' => __( 'Footer - Let Us Help', 'postali' ),
+			)
+		);
+	}
+	add_action( 'init', 'postali_child_register_nav_menus' );

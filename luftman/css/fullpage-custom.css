@@ -60,7 +60,7 @@ body.modal-is-active .header_top_bar, body.modal-is-active .header_inner {
   font-size:3.2em;
   line-height: 130%;
   color:#ceaa78;
-  font-family: 'icomoon';
+  font-family: 'icomoon-old';
   content: '\e909';
   margin: 0px auto 15px auto;
 }

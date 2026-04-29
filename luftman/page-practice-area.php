@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Practice Area (Updated)
+Template Name: Practice Area
 */ ?>
 
 <?php 
@@ -13,10 +13,17 @@ $featured_award_url = $featured_award['url'] ? $featured_award['url'] : '/wp-con
 $featured_award_alt = $featured_award['alt'] ? $featured_award['alt'] : "Ben Luftman's Best Lawyers award";
 $featured_award_title = $featured_award['title'] ? $featured_award['title'] : "Ben Luftman's Best Lawyers award";
 
+$banner_cta_group = get_field('banner_cta_group');
+$banner_cta_copy = $banner_cta_group['copy'];
+$banner_cta_phone = $banner_cta_group['phone_number'];
+$banner_cta_contact = $banner_cta_group['contact_page'];
 
 get_header(); ?>
 
-<div class="title animate has_background" style="background-image:url('<?php esc_html_e( $banner_img['url'] ); ?>'); height: 590px;">
+<div class="title">
+    <div class="background-image">
+        <?php echo wp_get_attachment_image($banner_img['ID'], 'full', '', ['class' => 'banner-img']) ?>
+    </div>
     <div class="container">
         <div class="container_inner clearfix">
             <?php if ( function_exists('yoast_breadcrumb') ) {yoast_breadcrumb('<p id="breadcrumbs">','</p>');} ?>
@@ -25,10 +32,47 @@ get_header(); ?>
             <div class="header-sub-title">
                 <?php the_field('banner_intro_cta_text') ?> 
             </div>
+
+            <?php if( $banner_cta_copy && $banner_cta_phone && $banner_cta_contact ) : ?>
+                <div class="cta-group-wrapper">
+                    <?php if( $banner_cta_copy ) : ?>
+                        <div class="cta-group cta-copy">
+                            <?php echo $banner_cta_copy; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if( $banner_cta_phone ) : ?>
+                        <div class="cta-group cta-phone">
+                            <p class="subheader_gold">Call Today</p>
+                            <a href="tel:<?php echo $banner_cta_phone; ?>"><?php echo $banner_cta_phone; ?></a>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if( $banner_cta_contact ) : ?>
+                        <div class="cta-group cta-contact">
+                            <p class="subheader_gold">Contact us Online</p>
+                            <a href="<?php echo $banner_cta_contact; ?>">Online Form</a>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+            <?php else : ?>
+
+                <div class="cta-group-wrapper">
+                    <div class="cta-group cta-copy">
+                        <p>If you have been charged with a crime, contact us TODAY for a <span>FREE consultation</span></p>
+                    </div>
+                    <div class="cta-group cta-phone">
+                        <p class="subheader_gold">Call Today</p>
+                        <a href="tel:6145003836">(614) 500-3836</a>
+                    </div>
+                    <div class="cta-group cta-contact">
+                        <p class="subheader_gold">Contact us Online</p>
+                        <a href="/contact/">Online Form</a>
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
-    </div>
-    <div class="icon-wrapper">
-        <img class="pa-icon" src="<?php esc_html_e($icon_img['url']); ?>" alt="<?php esc_html_e($icon_img['alt']); ?>" title="<?php esc_html_e($icon_img['title']); ?>">
     </div>
 </div>
 
@@ -38,7 +82,12 @@ get_header(); ?>
             <div class="two_columns_66_33 clearfix">
                 <div class="column1">
                     <div class="column_inner">
+                        <div class="practice-intro-text"><?php the_field('p1_intro_text'); ?></div>
+                    </div>
+                </div>
 
+                <div class="column2">
+                    <div class="column_inner">
                         <?php if(get_field('add_on_page_cta')) { ?>
                         <p class="subheader_gold attention">ATTENTION</p>
                         <div class="callout_box">
@@ -48,31 +97,6 @@ get_header(); ?>
                             <p><?php the_field('p1_cta_bottom_text'); ?></p>
                         </div>
                         <?php } ?>
-
-                        <p class="intro_text_gold"><?php the_field('p1_intro_text'); ?></p>
-
-                        <div class="arrow_down">
-                            <p class="subheader_gold">Scroll for more information</p>
-                            <i class="wp-svg-custom-down-arrow-2 down-arrow-2"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="column2"><div class="column_inner">
-                    <div class="practice_area_submenu">
-                        <p class="subheader_gold">Jump to</p>
-                        <?php if( have_rows('p3_main_body') ) : ?>
-                            <ul>
-                            <?php while( have_rows('p3_main_body') ) : the_row(); ?>
-                                <?php if( get_sub_field('section_title_h2') ) :
-                                    //prepare string for anchor link
-                                    $anchor_link = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', get_sub_field('section_title_h2')));
-                                    $anchor_link = str_replace('--', '-', $anchor_link);
-                                    ?>
-                                    <li><a href="#<?php echo strtolower($anchor_link); ?>"><?php the_sub_field('section_title_h2'); ?></a></li>
-                                <?php endif; ?>
-                            <?php endwhile; ?>
-                            </ul>
-                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -82,11 +106,10 @@ get_header(); ?>
     <div id="practice_area_awards" class="textpanel">
         <div class="container_inner">
             <div class="content_width_75">
-                <p class="intro_text_white"><?php the_field('p2_award_copy'); ?></p>
                 <a href="<?php the_field('p2_best_lawyer_link'); ?>"> 
                     <img src="<?php esc_html_e($featured_award_url); ?>" alt="<?php esc_html_e($featured_award_alt); ?>" title="<?php esc_html_e($featured_award_title); ?>">
                 </a>
-                <br>
+                
                 <?php $all_awards = get_field('p2_all_awards'); 
                 if( $all_awards ) : 
                     $all_awards_mobile_url = $all_awards['mobile_version'] ? $all_awards['mobile_version'] : '/wp-content/uploads/2018/03/dui-awards-mobile.png';
@@ -119,21 +142,19 @@ get_header(); ?>
                             <?php endif; ?>
 
                             <?php if( get_row_layout() === 'cta_block' ) : ?>
-                                <div class="contact_tab">
-                                    <div class="two_columns_50_50 clearfix flexbox_container">
-                                        <div class="column1">
-                                            <div class="column_inner">
-                                                <?php the_sub_field('cta_text'); ?>
-                                            </div>
+                                <div class="contact_tab">    
+                                    <div class="row1">
+                                        <?php the_sub_field('cta_text'); ?>
+                                    </div>
+                                    
+                                    <div class="row2">
+                                        <div class="cta-group cta-phone">
+                                            <p class="subheader_gold">Call Today</p>
+                                            <a href="tel:6145003836">(614) 500-3836</a>
                                         </div>
-                                        <div class="column2">
-                                            <div class="column_inner">
-                                                <div class="contact_form">
-                                                    <div class="wpcf7 js" id="wpcf7-f16290-p15102-o1" lang="en-US" dir="ltr">
-                                                        <?php echo do_shortcode( get_sub_field('contact_form')); ?>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="cta-group cta-contact">
+                                            <p class="subheader_gold">Contact us Online</p>
+                                            <a href="/contact/">Online Form</a>
                                         </div>
                                     </div>
                                 </div>
@@ -145,13 +166,23 @@ get_header(); ?>
                     </div>
                 </div>
                 <?php endif; ?>
-                <div class="column2">
-                    <div class="column_inner">  
-                        <aside class="sidebar">
-                            <div class="widget">
-                                <?php dynamic_sidebar('SidebarPage'); //utilizing wp menus through widgets ?>
-                            </div>
-                        </aside> 
+                <div class="column2"><div class="column_inner">
+                    <div class="practice_area_submenu">
+                        <p class="subheader_gold">On This Page:</p>
+                        <?php if( have_rows('p3_main_body') ) : ?>
+                            <ul>
+                            <?php while( have_rows('p3_main_body') ) : the_row(); ?>
+                                <?php if( get_sub_field('section_title_h2') ) :
+                                    //prepare string for anchor link
+                                    $anchor_link = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', get_sub_field('section_title_h2')));
+                                    $anchor_link = str_replace('--', '-', $anchor_link);
+                                    ?>
+                                    <li><a href="#<?php echo strtolower($anchor_link); ?>"><?php the_sub_field('section_title_h2'); ?></a></li>
+                                <?php endif; ?>
+                            <?php endwhile; ?>
+                            <li class="call-list-item"><a href="tel:6145003836">Call Today (614) 500-3836</a></li>
+                            </ul>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

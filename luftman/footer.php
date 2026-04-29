@@ -7,97 +7,149 @@
 		
 
 		<!-- footer contact widget -->
-	<?php if ( !is_page(19)) : ?>
-<div class="footer_contact"><div class="container_inner">
-<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer-contact') ) : ?><?php endif; ?>
-	</div></div>
-	<?php endif; ?>
+<div class="footer_contact">
+    <div class="container">
+        <div class="columns">
+            <div class="column-50">
+                <div class="eyebrow">
+                    <?php the_field('pf_eyebrow_text','options'); ?>
+                </div>
+                <h2><?php the_field('pf_headline','options'); ?></h2>
+                <div class="spacer-30"></div>
+                <a href="tel:<?php the_field('cbus_phone','options'); ?>" class="btn"><?php the_field('cbus_phone','options'); ?></a>
+            </div>
+            <div class="column-50">
+                <?php echo do_shortcode(  get_field('pf_form_shortcode','options')  ); ?>
+            </div>
+        </div>
+	</div>
+</div>
 
 
-	<?php if (is_single()) { ?>
-		<div class="blog-cta mobile-show">
-			<a href="tel:614-500-3836"><img src="/wp-content/uploads/2021/09/phone-icon.svg" title="phone icon"> <strong>Call Now</strong> (614) 500-3836</a>
-		</div>
-	<?php } ?>
+<footer>
+<!-- Google font call -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,600,700" rel="stylesheet">
+    <div class="container">
+        <div class="columns top">
+            <div class="column-50 block">
+                <div class="footer-logo">
+                    <a href="/" title="Luftman Heck and Associates">
+                        <img src="/wp-content/uploads/2018/02/logo.png" alt="Luftman Heck and Associates">
+                    </a>
+                </div>
+                <div class="spacer-30"></div>
+                <p class="phone"><a href="tel:<?php the_field('cbus_phone','options'); ?>"><?php the_field('cbus_phone','options'); ?></a></p>
+                <p class="email"><a href="mailto:<?php the_field('global_email','options'); ?>"><?php the_field('global_email','options'); ?></a></p>
+                <div class="spacer-15"></div>
+                <div class="social-media">
+                    <a href="<?php the_field('social_fb','options'); ?>"><span class="icon-icon-facebook"></span></a>
+                    <a href="<?php the_field('social_twitter','options'); ?>"><span class="icon-icon-twitter"></span></a>
+                    <a href="<?php the_field('social_in','options'); ?>"><span class="icon-icon-linkedin"></span></a>
+                </div>
+            </div>
+            <div class="column-25 block">
+                <div class="eyebrow">
+                    Practice Areas
+                </div>
+                <nav>
+                <?php
+                    // The parent theme menu has way too many complications, lets use a simple wp_menu, primary-nav, set in the functions.php file
+                    $args = array(
+                        'container' => false,
+                        'theme_location' => 'footer-practice'
+                    );
+                    wp_nav_menu( $args );
+                    ?>
+                </nav>
+            </div>
+            <div class="column-25 block">
+                <div class="eyebrow">
+                    Let Us Help
+                </div>
+                <nav>
+                <?php
+                    // The parent theme menu has way too many complications, lets use a simple wp_menu, primary-nav, set in the functions.php file
+                    $args = array(
+                        'container' => false,
+                        'theme_location' => 'footer-help'
+                    );
+                    wp_nav_menu( $args );
+                    ?>
+                </nav>
+            </div>
+        </div>
+        <div class="spacer-60"></div>
+        <div class="columns bottom">
+            <div class="column-50">
+                <div class="location">
+                    <div class="left">
+                        <div class="eyebrow white">
+                            <?php 
+                            $link = get_field('cbus_link','options');
+                            if( $link ): ?>
+                                <a href="<?php echo esc_url( $link ); ?>">Columbus Office</a>
+                            <?php endif; ?>
+                        </div>
+                        <p><a href="<?php the_field('cbus_driving','options'); ?>" target="blank"><?php the_field('cbus_address','options'); ?></a></p>
+                        <p><a href="tel:<?php the_field('cbus_phone','options'); ?>"><?php the_field('cbus_phone','options'); ?></a></p>
+                    </div>
+                    <div class="right">
+                        <iframe src="<?php the_field('cbus_map','options'); ?>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="column-50">
+                <div class="location">
+                    <div class="left">
+                        <div class="eyebrow white">
+                            <?php 
+                            $link = get_field('dublin_link','options');
+                            if( $link ): ?>
+                                <a href="<?php echo esc_url( $link ); ?>">Dublin Office</a>
+                            <?php endif; ?>
+                        </div>
+                        <p><a href="<?php the_field('dublin_driving','options'); ?>" target="blank"><?php the_field('dublin_address','options'); ?></a></p>
+                        <p><a href="tel:<?php the_field('dublin_phone','options'); ?>"><?php the_field('dublin_phone','options'); ?></a></p>
+                    </div>
+                    <div class="right">
+                        <iframe src="<?php the_field('dublin_map','options'); ?>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spacer-30"></div>
+        <div class="columns disclaimer">
+            <div class="column-full">
+                <p><?php the_field('disclaimer_text','options'); ?></p>
+            </div>
+        </div>
+        <div class="columns utility">
+            <div class="column-50">
+                <p>©<?php echo date("Y"); ?> Copyright by Luftman, Heck & Associates LLP. All rights reserved.</p>
+            </div>
+            <div class="column-50 utility-links">
+            <?php if( have_rows('utility_links','options') ): ?>
+                <ul class="utility">
+                <?php while( have_rows('utility_links','options') ): the_row(); ?>  
 
-		<footer>
-			
-		<!-- Google font call -->
-		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,600,700" rel="stylesheet">
-			
-			<div class="footer_holder clearfix">
-				
-					
-						<?php	
-						$display_footer_widget = false;
-						if ($qode_options_passage['footer_widget_area'] == "yes") $display_footer_widget = true;
-						if($display_footer_widget): ?> 
-						<div class="footer_top_holder">
-							<div class="footer_top">
-								
-								
-									<?php
-										$header_in_grid = false;
-										if ($qode_options_passage['header_in_grid'] == "yes") $header_in_grid = true;
+                    <?php
+                        $link = get_sub_field('page_link');
+                        if( $link ):
+                            $link_url = $link['url'];
+                            $link_title = $link['title'];
+                            $link_target = $link['target'] ? $link['target'] : '_self';
+                            echo '<li><a href="' . esc_url($link_url) . '" target="' . esc_attr($link_target) . '">' . esc_html($link_title) . '</a></li>';
+                        endif;
+                    ?>
+                <?php endwhile; ?>
+                </ul>
+            <?php endif; ?> 
+            </div>
+        </div>
+    </div>
+</footer>
 
-									?>
-									
 
-										<div class="container">
-											<div class="container_inner clearfix">
-
-									<div class="footer_top_inner">
-										<div class="two_columns_50_50 clearfix">
-											<div class="column1">
-												<div class="column_inner">
-													<?php dynamic_sidebar( 'footer_column_1' ); ?>
-                                                    <?php if(is_page(84)) { ?>
-                                                    <a href="https://www.postali.com" title="Site design and development by Postali" target="blank"><img src="https://www.postali.com/wp-content/themes/postali-site/img/postali-tag-reversed.png" alt="Postali | Results Driven Marketing" style="display:block; max-width:250px; margin:17px 0;"></a>
-                                                    <?php } ?>
-                                                </div>
-											</div>
-											<div class="column2">
-
-											<div class="two_columns_50_50 clearfix">
-                                            
-											<div class="column1">
-												<div class="column_inner">
-													<?php dynamic_sidebar( 'footer_column_2' ); ?>
-												</div>
-											</div>
-											<div class="column2">
-												<div class="column_inner">
-													<?php dynamic_sidebar( 'footer_column_3' ); ?>
-												</div>
-											</div></div>
-												
-											<?php dynamic_sidebar( 'footer_column_4' ); ?>
-												
-											</div>
-										</div>
-									</div>
-
-										</div>
-									</div>
-								
-							</div>
-						</div>
-						<?php endif; ?>
-						
-						<?php
-						$display_footer_text = false;
-						if (isset($qode_options_passage['footer_text'])) {
-							if ($qode_options_passage['footer_text'] == "yes") $display_footer_text = true;
-						}
-						if($display_footer_text): ?>
-						<div class="footer_bottom_holder">
-							<div class="footer_bottom">
-								<?php dynamic_sidebar( 'footer_text' ); ?>
-							</div>
-						</div>
-						<?php endif; ?>
-			</div>
-		</footer>
 </div>
 <?php 
 

@@ -84,6 +84,8 @@ jQuery(function($){
 </script>
 <?php endif; ?>
 
+<link rel="stylesheet" href="https://cdn.icomoon-old.io/152819/PostaliCrest/style.css?pf450h">
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -105,10 +107,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 	<!-- header search bar -->
 <div class="header_top_bar">
-<div class="two_columns_50_50 clearfix">
-	<div class="column1"><div class="header_phone"><?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('header-phone') ) : ?><?php endif; ?></div></div>
-	<div class="column2"><div class="header_search"><?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('header-search') ) : ?><?php endif; ?></div></div>
-	</div>
+    <div class="container">
+        <div class="columns">
+            <div class="column-full"><div class="header_phone"><?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('header-phone') ) : ?><?php endif; ?></div> <div class="header_search"><?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('header-search') ) : ?><?php endif; ?></div></div>
+        </div>
+    </div>
 </div>
 	
 <header class="animate <?php if(isset($qode_options_passage['header_fixed']) && $qode_options_passage['header_fixed'] == "no"){ echo "no_fixed"; } ?><?php if($centered_logo){ echo " centered_logo"; } ?>">

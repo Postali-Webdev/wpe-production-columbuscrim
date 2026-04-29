@@ -115,4 +115,46 @@
     }
 });
 
+
+// Toggle search function in nav
+	$( document ).ready( function() {
+		var width = $(document).outerWidth();
+		if (width > 992) {
+			var open = false;
+			$('#search-button').attr('type', 'button');
+			
+			$('#search-button').on('click', function(e) {
+					if ( !open ) {
+						$('#search-input-container').removeClass('hdn');
+						$('#search-button span').removeClass('icon-search-icon').addClass('icon-close-x');
+						$('#menu-main-menu li.menu-item').addClass('disable');
+						open = true;
+						return;
+					}
+					if ( open ) {
+						$('#search-input-container').addClass('hdn');
+						$('#search-button span').removeClass('icon-close-x').addClass('icon-search-icon');
+						$('#menu-main-menu li.menu-item').removeClass('disable');
+						open = false;
+						return;
+					}
+			}); 
+			$('html').on('click', function(e) {
+				var target = e.target;
+				if( $(target).closest('.navbar-form-search').length ) {
+					return;
+				} else {
+					if ( open ) {
+						$('#search-input-container').addClass('hdn');
+						$('#search-button span').removeClass('icon-close-x').addClass('icon-search-icon');
+						$('#menu-main-menu li.menu-item').removeClass('disable');
+						open = false;
+						return;
+					}
+				}
+			});
+		}
+	});
+    
+
 })(jQuery);
