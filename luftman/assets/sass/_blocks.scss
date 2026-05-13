@@ -3,7 +3,21 @@
 .footer_contact {
     background:$dkblue;
     padding: 60px 0;
-
+    h2 {
+        font-weight: $bold;
+    }
+    .btn {
+        background: $yellow;
+        border-color: $yellow;
+        color: $dkblue;
+        font-weight: $bold;
+        padding: 12px 20px;
+        &:hover {
+            background: $white !important;
+            border-color: $white !important;
+            color: $dkblue !important;
+        }
+    }
     &::before {
         display: none;
     }
@@ -17,6 +31,23 @@
 
             h2 {
                 color: $white;
+            }
+        }
+    }
+
+    .gform_wrapper {
+        label, .gform_required_legend {
+            display: none !important;
+        }
+        input, textarea {
+            color: $white !important;
+            background: rgba(255,255,255,0.1) !important;
+        }
+        input[type="submit"] {
+            background: none !important;
+            &:hover {
+                background: $yellow !important;
+                border-color: $yellow !important;
             }
         }
     }

@@ -1217,10 +1217,7 @@ span.create a { color: #3393ab; }
 .category .pagination .page-numbers li span.current { 
   color: #0d213a;
 }
-.blog .pagination .page-numbers li a,
-.category .pagination .page-numbers li a {
-  color: #fff !important;
-}
+
 /* single Blog posts */
 .single .title { background-image: url('/wp-content/uploads/2018/03/content-header-blog.jpg')!important; height: 460px!important; }
 .single .container.top_move, .single .container_inner2 { padding: 0px; }
@@ -1241,15 +1238,15 @@ span.create a { color: #3393ab; }
 .pagination { margin: 20px 0px; text-align: center; }
 .pagination ul { margin: 0px auto 20px auto!important; }
 .pagination ul li { margin: 0px 0px 12px 12px!important; padding: 0px; }
-.pagination ul li a { background: #3661a9; color: #fff; }
-.pagination ul li a:hover { background: #cbaa79; }
-.pagination ul li span { background: #cbaa79;  }
+.pagination ul li a { background: #fff; color: #0D213A; }
+.pagination ul li a:hover { background: #FFC361; }
+.pagination ul li span { background: #FFC361;  color:#0D213A; }
 .pagination ul li:before { display: none!important; }
 .pagination .prev { margin-left: 0px!important; }
 .pagination ul li.prev a { background: url('/wp-content/uploads/2018/03/blog-left.png') 50% 50% no-repeat #224477; }
 .pagination ul li.next a { background: url('/wp-content/uploads/2018/03/blog-right.png') 50% 50% no-repeat #224477; }
-.pagination ul li.prev a:hover { background-color: #cbaa79; background-repeat: no-repeat; background-position: 45% 50%; }
-.pagination ul li.next a:hover { background-color: #cbaa79; background-repeat: no-repeat; background-position: 55% 50%; }
+.pagination ul li.prev a:hover { background-color: #FFC361; background-repeat: no-repeat; background-position: 45% 50%; }
+.pagination ul li.next a:hover { background-color: #FFC361; background-repeat: no-repeat; background-position: 55% 50%; }
 
 /* single blog social icons */
 .social_share_holder::before { content: "Share"; display: block; font-size: 0.9em; font-weight: 700; color: #000723; line-height: 100%; margin-bottom: 15px; text-transform: uppercase; font-style: normal; }

@@ -54,24 +54,24 @@
         }
     }
 
-    .btn {
-        color: $blk !important;
-        background: $yellow;
-        border:none !important;
-        padding: 12px 20px;
-        font-weight: bold;
-        transition: 0.2s linear;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: 15px;
-        line-height: 150%;
+    // .btn {
+    //     color: $blk !important;
+    //     background: $yellow;
+    //     border:none !important;
+    //     padding: 12px 20px;
+    //     font-weight: bold;
+    //     transition: 0.2s linear;
+    //     text-decoration: none;
+    //     text-transform: uppercase;
+    //     font-size: 15px;
+    //     line-height: 150%;
 
-        &:hover {
-            background:$dkblue !important;
-            color:$white !important;
-            text-decoration: underline;
-        }
-    }
+    //     &:hover {
+    //         background:$dkblue !important;
+    //         color:$white !important;
+    //         text-decoration: underline;
+    //     }
+    // }
 
     @include cta-block;
     

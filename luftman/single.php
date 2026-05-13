@@ -69,7 +69,10 @@ if(get_post_meta(get_the_ID(), "qode_content-animation", true) != ""){
 							<?php } ?>
 							
 							<?php if ( function_exists('yoast_breadcrumb') ) {yoast_breadcrumb('<p id="breadcrumbs">','</p>');} ?>
-							
+							<h1><?php the_title(); ?></h1>		
+							<span class="create">Posted On: <span class="blue"><?php the_time('F jS, Y'); ?></span>  &nbsp; | &nbsp; Posted by: Luftman, Heck & Associates LLP</span>								
+							<!-- social share -->
+							<?php echo do_shortcode('[social_share]'); ?>
 							<?php if($title_in_grid){ ?>
 								</div>
 							</div>
@@ -139,19 +142,12 @@ if(get_post_meta(get_the_ID(), "qode_content-animation", true) != ""){
 						<?php if($sidebar == "1") : ?>	
 							<div class="two_columns_66_33 background_color_sidebar grid2 clearfix">
 											
-							<div class="title_container"><h1><?php the_title(); ?></h1>										
-							 <span class="create">Posted On: <span class="blue"><?php the_time('F jS, Y'); ?></span>  &nbsp; | &nbsp; Posted by: Luftman, Heck & Associates LLP</span>
-							</div>
-
-
+			
 							<div class="column1">
 						<?php elseif($sidebar == "2") : ?>	
 							<div class="two_columns_75_25 background_color_sidebar grid2 clearfix">
 								<div class="column1">
 						<?php endif; ?>
-
-							<!-- social share -->
-							<?php echo do_shortcode('[social_share]'); ?>
 					
 									<div class="column_inner">
 

@@ -20,15 +20,6 @@ dl, blockquote, img {
 
 }
 
-a {
-    text-decoration:none;
-    transition:$trans;
-    &:hover {
-        // color:$lt-red;
-        text-decoration:none;
-    }
-}
-
 .btn  {
     display: inline-block;
     padding: 15px 35px;

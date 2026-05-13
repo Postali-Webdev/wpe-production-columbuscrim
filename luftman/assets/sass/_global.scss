@@ -607,7 +607,7 @@ article {
             border-radius: 50px;
             
             &.current {
-                background:none;
+                background: $yellow !important;
             }
         }
     }
@@ -778,3 +778,4 @@ article {
         }
     }
 }
+
