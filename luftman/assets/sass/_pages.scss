@@ -1199,6 +1199,9 @@
     }
     #courts_process {
         padding-top: 80px;
+        &:after {
+            display: none !important;
+        }
         &:before {
             display: none;
         }
@@ -1210,6 +1213,80 @@
             a {
                 color: inherit !important;
                 font-weight: inherit !important;
+            }
+        }
+    }
+}
+
+.page-template-sitemap {
+    .title {
+        height: 100% !important;
+        padding-top: 160px;
+        padding-bottom: 160px;
+        @include respond(phone) {
+            padding: 60px 0;
+        }
+        .container {
+            display: block !important;
+            margin: 0 auto !important;
+            position: relative !important;
+            max-width: 100%;
+            top: 0;
+            .title_subheader {
+                text-align: left;
+                color: $white;
+                margin-bottom: 30px;
+            }
+            h1 {
+                font-size: 60px;
+                text-align: left;
+                @include respond(phone) {
+                    font-size: 45px;
+                }
+            }
+            .subtitle {
+                text-align: left;
+            }
+            p {
+                margin: 30px 0 0 0;
+                text-align: left;
+                a {
+                    color: $white !important;
+                    font-weight: inherit !important;
+                }
+            }
+        }
+        &:after {
+            display: none !important;
+        }
+        &:before {
+            bottom: -60px;
+        }
+    }    
+    .content {
+        margin-bottom: 0;
+        .container {
+            margin: 0 auto;
+            &_inner {
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+        background: $dkblue;
+        .content_width_75 {
+            width: 100%;
+            h3 {
+                color: $white;
+            }
+            ul {
+                li {
+                    &::marker {
+                        color: $yellow;
+                    }
+                    a {
+                        color: $white !important;
+                    }
+                }
             }
         }
     }

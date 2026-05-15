@@ -755,7 +755,7 @@ p#breadcrumbs a:hover { text-decoration: underline; }
 .header-sub-title a {color:#fff; text-decoration: none;}
 
 /* title icons */
-.title::before { content: url('/wp-content/uploads/2018/02/title-icon-ohio-flag.png'); width: 210px; height: 170px; position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); line-height: 100%; text-align: center; z-index: 1001; background-size: contain; } /* add circle icons */
+.title::before { content: url('/wp-content/uploads/2018/02/title-icon-ohio-flag.png'); width: 210px; height: 170px; position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); line-height: 100%; text-align: center; z-index: 3; background-size: contain; } /* add circle icons */
 .page-id-19 .title::before { content: url('/wp-content/uploads/2018/03/title-icon-contact.png'); } /* contact */
 .page-id-106 .title::before { content: url('/wp-content/uploads/2018/03/title-icon-courts.png'); } /* courts overall */ 
 .blog .title::before, .single .title::before, .archive .title::before { content: url('/wp-content/uploads/2018/03/title-icon-blog.png'); } 
