@@ -383,7 +383,7 @@ div.asl_r.vertical { background: #0d213a; }
 .textpanel h2 { text-align: center; }
 .textpanel h3 { margin-top: 0px; font-size: 32px; color:black; font-weight:600;}
 .textpanel p, .full_width p { color: #fff; }
-.textpanel.blue ul li, .full_width ul li { color: #fff !important; }
+.textpanel.blue ul li { color: #fff !important; }
 .angled { z-index: 1; padding: 0% 0 4% 0; } /* textpanel with angled edges */
 .angled:before, .angled:after { content: ''; width: 100%; height: 450px; position: absolute; background: inherit; z-index: -1; }
 .angled:before { top: -5%; transform-origin: right top; transform: skewY(7deg); }
