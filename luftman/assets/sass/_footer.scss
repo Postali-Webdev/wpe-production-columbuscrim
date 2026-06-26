@@ -167,12 +167,12 @@ footer {
                         display: inline-flex;
 
                         a {
-                            color:$white;
+                            color:$white !important;
                             text-decoration: none;
                             font-size: 13px;
 
                             &:hover {
-                                color:$yellow;
+                                color:$yellow !important;
                             }
                         }
                     }
